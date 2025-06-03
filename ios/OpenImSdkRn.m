@@ -65,7 +65,6 @@ RCT_EXPORT_MODULE()
   @"onRecvOfflineNewMessages",
   @"onMsgDeleted" ,
   @"onRecvC2CReadReceipt",
-  @"onRecvGroupReadReceipt",
   @"onNewRecvMessageRevoked",
   @"onRecvMessageRevoked",
   @"onRecvNewMessage",
@@ -1320,12 +1319,6 @@ RCT_EXPORT_METHOD(uploadFile:(NSDictionary *)reqData operationID:(NSString *)ope
     NSArray *msgReceiptListArray = [self parseJsonStr2Array:msgReceiptList];
     [self pushEvent:@"onRecvC2CReadReceipt" data:msgReceiptListArray];
 }
-
-- (void)onRecvGroupReadReceipt:(NSString* _Nullable)msgReceiptList {
-    NSArray *msgReceiptListArray = [self parseJsonStr2Array:msgReceiptList];
-    [self pushEvent:@"onRecvGroupReadReceipt" data:msgReceiptListArray];
-}
-
 
  - (void)onRecvMessageRevoked:(NSString* _Nullable)msgId {
     [self pushEvent:@"onRecvMessageRevoked" data:msgId];
