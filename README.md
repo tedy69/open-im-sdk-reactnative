@@ -10,7 +10,7 @@ The React Native Client SDK use [NativeModule](https://reactnative.dev/docs/nati
 
 ## Tips 🔔
 
-1. The open-im-sdk-rn@3.5.1 has contains ***significant disruptive updates***. If you need to upgrade, please check the incoming data and the returned data.
+1. The open-im-sdk-rn@3.5.1 has contains **_significant disruptive updates_**. If you need to upgrade, please check the incoming data and the returned data.
 
 2. Unlike other SDKS, React Native SDK operationID is not optional, but required.
 
@@ -25,7 +25,7 @@ For the SDK reference, see [https://doc.rentsoft.cn/sdks/quickstart/reactnative]
 ### Adding Dependencies
 
 ```sh
-yarn add open-im-sdk-rn
+yarn add @tedy-inter/open-im-sdk-rn
 ```
 
 ## Usage 🚀
@@ -35,30 +35,36 @@ The following examples demonstrate how to use the SDK. TypeScript is used, provi
 ### Importing the SDK and init
 
 ```typescript
-import OpenIMSDKRN from 'open-im-sdk-rn';
+import OpenIMSDKRN from '@tedy-inter/open-im-sdk-rn';
 import RNFS from 'react-native-fs';
 
 RNFS.mkdir(RNFS.DocumentDirectoryPath + '/tmp');
 
-OpenIMSDKRN.initSDK({
-  platformID: 2,  // 1: ios, 2: android
-  apiAddr: 'http://your-server-ip:10002',
-  wsAddr: 'ws://your-server-ip:10001',
-  dataDir: RNFS.DocumentDirectoryPath + '/tmp',
-  logLevel: 5,
-  isLogStandardOutput: true,
-}, 'opid');
+OpenIMSDKRN.initSDK(
+  {
+    platformID: 2, // 1: ios, 2: android
+    apiAddr: 'http://your-server-ip:10002',
+    wsAddr: 'ws://your-server-ip:10001',
+    dataDir: RNFS.DocumentDirectoryPath + '/tmp',
+    logLevel: 5,
+    isLogStandardOutput: true,
+  },
+  'opid'
+);
 ```
 
 ### Logging In and Listening for Connection Status
 
 ```typescript
-import OpenIMSDKRN, { OpenIMEmitter } from 'open-im-sdk-rn';
+import OpenIMSDKRN, { OpenIMEmitter } from '@tedy-inter/open-im-sdk-rn';
 
-OpenIMSDKRN.login({
-  userID: 'IM user ID',
-  token: 'IM user token',
-}, 'opid');
+OpenIMSDKRN.login(
+  {
+    userID: 'IM user ID',
+    token: 'IM user token',
+  },
+  'opid'
+);
 
 OpenIMEmitter.addListener('onConnecting', () => {
   console.log('onConnecting');
@@ -80,8 +86,8 @@ To log into the IM server, you need to create an account and obtain a user ID an
 OpenIM makes it easy to send and receive messages. By default, there is no restriction on having a friend relationship to send messages (although you can configure other policies on the server). If you know the user ID of the recipient, you can conveniently send a message to them.
 
 ```typescript
-import OpenIMSDKRN, { OpenIMEmitter } from 'open-im-sdk-rn';
-import type { MessageItem } from 'open-im-sdk-rn';
+import OpenIMSDKRN, { OpenIMEmitter } from '@tedy-inter/open-im-sdk-rn';
+import type { MessageItem } from '@tedy-inter/open-im-sdk-rn';
 
 OpenIMEmitter.addListener('onRecvNewMessages', (data: MessageItem[]) => {
   console.log('onRecvNewMessages', data);
@@ -89,15 +95,18 @@ OpenIMEmitter.addListener('onRecvNewMessages', (data: MessageItem[]) => {
 
 const message = await OpenIMSDKRN.createTextMessage('hello openim', 'opid');
 
-OpenIMSDKRN.sendMessage({
-  recvID: 'recipient user ID',
-  groupID: '',
-  message,
-}, 'opid')
+OpenIMSDKRN.sendMessage(
+  {
+    recvID: 'recipient user ID',
+    groupID: '',
+    message,
+  },
+  'opid'
+)
   .then(() => {
     // Message sent successfully ✉️
   })
-  .catch(err => {
+  .catch((err) => {
     // Failed to send message ❌
     console.log(err);
   });

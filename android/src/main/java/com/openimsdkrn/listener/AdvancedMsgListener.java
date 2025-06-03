@@ -28,6 +28,11 @@ public class AdvancedMsgListener extends Emitter implements OnAdvancedMsgListene
   }
 
   @Override
+  public void onRecvGroupReadReceipt(String s) {
+    send(ctx,"onRecvGroupReadReceipt",jsonStringToArray(s));
+  }
+
+  @Override
   public void onRecvNewMessage(String s) {
     send(ctx,"onRecvNewMessage",jsonStringToMap(s));
   }
