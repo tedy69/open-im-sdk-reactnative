@@ -124,7 +124,7 @@ export type SearchFriendParams = {
 };
 
 export type RemarkFriendParams = {
-  friendUserIDs: string;
+  toUserID: string;
   remark: string;
 };
 
