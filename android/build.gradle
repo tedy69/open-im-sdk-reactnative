@@ -62,5 +62,5 @@ dependencies {
     implementation 'androidx.collection:collection:1.1.0'
     implementation 'com.alibaba:fastjson:1.1.72.android'
     // implementation 'io.openim:core-sdk:3.8.3-patch3@aar'
-    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
