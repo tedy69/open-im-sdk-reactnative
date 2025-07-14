@@ -69,11 +69,15 @@ export enum MessageType {
   QuoteMessage = 114,
   FaceMessage = 115,
   FriendAdded = 1201,
+  FriendRejected = 1202,
   OANotification = 1400,
 
   GroupCreated = 1501,
   GroupInfoUpdated = 1502,
+  GroupApplication = 1503,
   MemberQuit = 1504,
+  GroupApplicationAccepted = 1505,
+  GroupApplicationRejected = 1506,
   GroupOwnerTransferred = 1507,
   MemberKicked = 1508,
   MemberInvited = 1509,
@@ -83,8 +87,12 @@ export enum MessageType {
   GroupMemberCancelMuted = 1513,
   GroupMuted = 1514,
   GroupCancelMuted = 1515,
+  GroupMemberInfoUpdated = 1516,
+  GroupMemberRoleToAdmin = 1517,
+  GroupMemberRoleToNormal = 1518,
   GroupAnnouncementUpdated = 1519,
   GroupNameUpdated = 1520,
+  GroupNotificationEnd = 1599,
   BurnMessageChange = 1701,
 
   // notification
