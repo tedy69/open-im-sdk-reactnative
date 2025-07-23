@@ -1,6 +1,6 @@
 {
-  "name": "@tedy-inter/open-im-sdk-rn",
-  "version": "3.8.3-13",
+  "name": "@inter-digital/open-im-sdk-rn",
+  "version": "1.0.0-alpha.0",
   "description": "OpenIM SDK for react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
