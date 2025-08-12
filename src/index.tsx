@@ -202,6 +202,7 @@ interface OpenIMSDKRNInterface {
     operationID: string
   ) => Promise<GroupItem>;
   joinGroup: (params: JoinGroupParams, operationID: string) => Promise<unknown>;
+  isJoinGroup: (groupID: string, operationID: string) => Promise<boolean>;
   inviteUserToGroup: (
     params: OpreateGroupParams,
     operationID: string
