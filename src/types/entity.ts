@@ -216,6 +216,7 @@ export type MessageItem = {
   advancedTextElem?: AdvancedTextElem;
   typingElem?: TypingElem;
   attachedInfoElem: AttachedInfoElem;
+  envelopeInfoElem?: EnvelopeInfoElem;
 };
 export type TextElem = {
   content: string;
@@ -293,6 +294,10 @@ export type AttachedInfoElem = {
   messageEntityList?: MessageEntity[];
   uploadProgress?: UploadProgress;
 };
+export type EnvelopeInfoElem = {
+  userID : string;
+  claimAt : number;
+}
 export type UploadProgress = {
   total: number;
   save: number;
